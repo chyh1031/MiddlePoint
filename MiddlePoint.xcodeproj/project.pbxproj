@@ -105,7 +105,6 @@
 				721E3865247181B6004420CA /* Sources */,
 				721E3866247181B6004420CA /* Frameworks */,
 				721E3867247181B6004420CA /* Resources */,
-				9CBCD2D95018316685AA4BEF /* [CP] Embed Pods Frameworks */,
 				3227383E3F6B165C9FB2AB81 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -179,23 +178,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9CBCD2D95018316685AA4BEF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C1CD2242F37EF3B3F6881278 /* [CP] Check Pods Manifest.lock */ = {

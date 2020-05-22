@@ -6,24 +6,20 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (3.8.0):
     - GoogleMaps/Base (= 3.8.0)
-  - IQKeyboardManager (6.5.5)
 
 DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
-  - IQKeyboardManager
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - GoogleMaps
     - GooglePlaces
-    - IQKeyboardManager
 
 SPEC CHECKSUMS:
   GoogleMaps: 7c8d66d70e4e8c300f43a7219d8fdaad7b325a9a
   GooglePlaces: d5f70c3e9e427964fdeca1301a665d276ccd8754
-  IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
 
-PODFILE CHECKSUM: df3ff8d216deebbc6b23b1777288725eedb7ecf5
+PODFILE CHECKSUM: c279371ea4f12723537a9fce9f8510848b8f17e9
 
 COCOAPODS: 1.8.4
