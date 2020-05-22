@@ -168,7 +168,7 @@
             </objects>
             <point key="canvasLocation" x="1055.072463768116" y="158.70535714285714"/>
         </scene>
-        <!--선호장소 선택-->
+        <!--선호장소선택-->
         <scene sceneID="IJu-K4-cRq">
             <objects>
                 <viewController storyboardIdentifier="FindPreferLocationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VdJ-lH-4V2" customClass="FindPreferLocationViewController" customModule="MiddlePoint" customModuleProvider="target" sceneMemberID="viewController">
@@ -217,7 +217,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DGP-9Y-WE6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="선호장소 선택" id="4kA-Zx-4QS"/>
+                    <navigationItem key="navigationItem" title="선호장소선택" id="4kA-Zx-4QS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pg-iA-a94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

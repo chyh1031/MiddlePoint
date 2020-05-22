@@ -62,16 +62,13 @@ class FindAddressViewController: UIViewController {
     
     @IBAction func peopleCountButtonDidTap(_ sender: Any) {
         //인원이 몇명이신가요 버튼을 눌렀을 경우 실행하는 함수
-        peopleCountLabel.textColor = .black
-        peopleCountLabel.text = "1명"
-        currentPeopleCount = peopleCountArray[0]
         view.addSubview(picker)
         view.addSubview(toolBar)
         
     }
     
     @IBAction func nextButtonDidtap(_ sender: Any) {
-//        if friendsCoordinations.count == currentPeopleCount {
+        if friendsCoordinations.count == currentPeopleCount {
             //선택한 친구들 명수와 친구들 위치 정보 개수가 같을경우에만 다음페이지로 넘긴다
             let nextViewController = storyboard?.instantiateViewController(withIdentifier: "FindPreferLocationViewController") as! FindPreferLocationViewController
             nextViewController.myCoordination = myCoordination
@@ -80,13 +77,13 @@ class FindAddressViewController: UIViewController {
             nextViewController.friendsAddress = friendsAddress
           
             navigationController?.pushViewController(nextViewController, animated: true)
-//        } else {
-//            // 아닐 경우 Alert를 띄운다.
-//            let alert = UIAlertController(title: "", message: "친구들의 위치정보를 확인해주세요.",preferredStyle: .alert)
-//            let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
-//            alert.addAction(okAction)
-//            present(alert, animated: true, completion: nil)
-//        }
+        } else {
+            // 아닐 경우 Alert를 띄운다.
+            let alert = UIAlertController(title: "", message: "친구들의 위치정보를 확인해주세요.",preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
@@ -164,6 +161,7 @@ class FindAddressViewController: UIViewController {
         
         guard let coordination = myCoordination else { return }
         
+        //API 통신 좌표 -> 주소
         geocoder?.reverseGeocodeCoordinate(coordination) { response, error in
             
             if error != nil {
@@ -263,6 +261,7 @@ extension FindAddressViewController: GMSAutocompleteViewControllerDelegate {
         guard let placeName = place.name else { return }
         friendsAddress[selectedRow] = placeName
         
+        //API 통신 주소 -> 좌표
         CLGeocoder().geocodeAddressString(placeName) { placeMarks, error in
             if error != nil {
                 print("에러 발생: 에러")
