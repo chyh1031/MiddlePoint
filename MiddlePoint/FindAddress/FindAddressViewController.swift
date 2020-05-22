@@ -188,8 +188,12 @@ class FindAddressViewController: UIViewController {
     
     @IBAction func peopleCountButtonDidTap(_ sender: Any) {
         //인원이 몇명이신가요 버튼을 눌렀을 경우 실행하는 함수
-        self.view.addSubview(picker)
-        self.view.addSubview(toolBar)
+        peopleCountLabel.textColor = .black
+        peopleCountLabel.text = "1명"
+        currentPeopleCount = peopleCountArray[0]
+        view.addSubview(picker)
+        view.addSubview(toolBar)
+        
     }
     
     @IBAction func nextButtonDidtap(_ sender: Any) {

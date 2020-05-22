@@ -66,15 +66,31 @@
 			isa = PBXGroup;
 			children = (
 				721E386C247181B6004420CA /* AppDelegate.swift */,
-				721E388024718344004420CA /* FindAddressViewController.swift */,
-				721E388224719436004420CA /* FriendAddressTableViewCell.swift */,
-				727B9D812477F4AF00984A62 /* FindPreferLocationViewController.swift */,
+				727B9D832477FA7D00984A62 /* FindAddress */,
+				727B9D842477FA8D00984A62 /* FindPreferLocation */,
 				721E3872247181B6004420CA /* Main.storyboard */,
-				721E3875247181B6004420CA /* Assets.xcassets */,
 				721E3877247181B6004420CA /* LaunchScreen.storyboard */,
+				721E3875247181B6004420CA /* Assets.xcassets */,
 				721E387A247181B6004420CA /* Info.plist */,
 			);
 			path = MiddlePoint;
+			sourceTree = "<group>";
+		};
+		727B9D832477FA7D00984A62 /* FindAddress */ = {
+			isa = PBXGroup;
+			children = (
+				721E388024718344004420CA /* FindAddressViewController.swift */,
+				721E388224719436004420CA /* FriendAddressTableViewCell.swift */,
+			);
+			path = FindAddress;
+			sourceTree = "<group>";
+		};
+		727B9D842477FA8D00984A62 /* FindPreferLocation */ = {
+			isa = PBXGroup;
+			children = (
+				727B9D812477F4AF00984A62 /* FindPreferLocationViewController.swift */,
+			);
+			path = FindPreferLocation;
 			sourceTree = "<group>";
 		};
 		803DFD4B3BB4A62D8190D923 /* Pods */ = {
