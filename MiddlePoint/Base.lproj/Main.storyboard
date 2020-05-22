@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gXy-CY-VJF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--친구위치찾기-->
+        <scene sceneID="Eqh-uF-aW9">
+            <objects>
+                <viewController restorationIdentifier="FindAddressViewController" storyboardIdentifier="FindAddressViewController" id="1gU-2w-1qd" customClass="FindAddressViewController" customModule="MiddlePoint" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LvM-mp-iXH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="만나는 친구가 몇명이신가요?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZt-Ef-YNL">
+                                <rect key="frame" x="36.5" y="391" width="341" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="sPn-iW-Ux6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Id-xB-qeD">
+                                <rect key="frame" x="36.5" y="391" width="341" height="40"/>
+                                <connections>
+                                    <action selector="peopleCountButtonDidTap:" destination="1gU-2w-1qd" eventType="touchUpInside" id="5Oi-2r-7Li"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXy-jK-OiX">
+                                <rect key="frame" x="36.5" y="434" width="341" height="1"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.25490196079999999" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="rZh-zt-yv9"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 현위치" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWf-xX-0la">
+                                <rect key="frame" x="36.5" y="455" width="341" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcw-De-Nhu">
+                                <rect key="frame" x="36.5" y="498" width="341" height="1"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.25490196078431371" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="ebT-6v-Hyu"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1GB-e7-EF9">
+                                <rect key="frame" x="36.5" y="519" width="341" height="293"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FriendAddressTableViewCell" rowHeight="64" id="LsW-Ni-OdB" customClass="FriendAddressTableViewCell" customModule="MiddlePoint" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="341" height="64"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LsW-Ni-OdB" id="fye-jn-zen">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7X-SN-Z6C">
+                                                    <rect key="frame" x="0.0" y="43" width="341" height="1"/>
+                                                    <color key="backgroundColor" red="0.40000000000000002" green="0.25490196079999999" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="kUt-Ja-9wg"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="친구의 위치는?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUm-fe-Qqv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="341" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="PeE-83-PUa"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BUm-fe-Qqv" firstAttribute="top" secondItem="fye-jn-zen" secondAttribute="top" id="PCn-kh-tEe"/>
+                                                <constraint firstAttribute="trailing" secondItem="BUm-fe-Qqv" secondAttribute="trailing" id="Zdb-Jc-i1V"/>
+                                                <constraint firstItem="c7X-SN-Z6C" firstAttribute="leading" secondItem="BUm-fe-Qqv" secondAttribute="leading" id="aAk-vL-vPW"/>
+                                                <constraint firstItem="c7X-SN-Z6C" firstAttribute="trailing" secondItem="BUm-fe-Qqv" secondAttribute="trailing" id="dRa-eq-zds"/>
+                                                <constraint firstAttribute="bottom" secondItem="c7X-SN-Z6C" secondAttribute="bottom" constant="20" id="j9x-Mj-HNU"/>
+                                                <constraint firstItem="BUm-fe-Qqv" firstAttribute="leading" secondItem="fye-jn-zen" secondAttribute="leading" id="r1J-3T-p5K"/>
+                                                <constraint firstItem="c7X-SN-Z6C" firstAttribute="top" secondItem="BUm-fe-Qqv" secondAttribute="bottom" constant="3" id="vpA-kY-yWb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="addressLabel" destination="BUm-fe-Qqv" id="TUN-DY-g3u"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3I-kk-NYG">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.25490196079999999" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sDY-ju-Wo2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="다음으로">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonDidtap:" destination="1gU-2w-1qd" eventType="touchUpInside" id="Dgk-0L-qSQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2Id-xB-qeD" firstAttribute="centerX" secondItem="OZt-Ef-YNL" secondAttribute="centerX" id="1VC-hb-2Ky"/>
+                            <constraint firstItem="1GB-e7-EF9" firstAttribute="centerX" secondItem="fcw-De-Nhu" secondAttribute="centerX" id="218-8R-jXB"/>
+                            <constraint firstItem="vWf-xX-0la" firstAttribute="centerX" secondItem="2Id-xB-qeD" secondAttribute="centerX" id="6xJ-9u-Dn7"/>
+                            <constraint firstItem="2Id-xB-qeD" firstAttribute="width" secondItem="OZt-Ef-YNL" secondAttribute="width" id="B4q-ET-pzT"/>
+                            <constraint firstItem="vWf-xX-0la" firstAttribute="height" relation="greaterThanOrEqual" secondItem="2Id-xB-qeD" secondAttribute="height" id="F2r-7A-Eka"/>
+                            <constraint firstItem="IXy-jK-OiX" firstAttribute="width" secondItem="OZt-Ef-YNL" secondAttribute="width" id="GLD-7w-wL8"/>
+                            <constraint firstItem="G3I-kk-NYG" firstAttribute="centerX" secondItem="1GB-e7-EF9" secondAttribute="centerX" id="Ii9-5e-ekf"/>
+                            <constraint firstItem="fcw-De-Nhu" firstAttribute="width" secondItem="vWf-xX-0la" secondAttribute="width" id="RJO-o0-YB1"/>
+                            <constraint firstItem="OZt-Ef-YNL" firstAttribute="width" secondItem="LvM-mp-iXH" secondAttribute="width" multiplier="0.823188" id="Rew-bH-cSG"/>
+                            <constraint firstItem="fcw-De-Nhu" firstAttribute="centerX" secondItem="vWf-xX-0la" secondAttribute="centerX" id="VjP-d1-4hz"/>
+                            <constraint firstItem="G3I-kk-NYG" firstAttribute="width" secondItem="LvM-mp-iXH" secondAttribute="width" id="YMO-El-bWO"/>
+                            <constraint firstItem="IXy-jK-OiX" firstAttribute="top" secondItem="OZt-Ef-YNL" secondAttribute="bottom" constant="3" id="aN8-Y9-ZOQ"/>
+                            <constraint firstItem="vWf-xX-0la" firstAttribute="width" secondItem="2Id-xB-qeD" secondAttribute="width" id="ar5-cQ-kcu"/>
+                            <constraint firstItem="vWf-xX-0la" firstAttribute="centerX" secondItem="yeX-Ye-aIg" secondAttribute="centerX" id="bCn-Uh-Qn3"/>
+                            <constraint firstItem="G3I-kk-NYG" firstAttribute="bottom" secondItem="yeX-Ye-aIg" secondAttribute="bottom" id="dXb-1F-zFR"/>
+                            <constraint firstItem="2Id-xB-qeD" firstAttribute="centerY" secondItem="OZt-Ef-YNL" secondAttribute="centerY" id="dkx-Ss-Vv3"/>
+                            <constraint firstItem="IXy-jK-OiX" firstAttribute="centerX" secondItem="OZt-Ef-YNL" secondAttribute="centerX" id="jL3-Oa-WJZ"/>
+                            <constraint firstItem="OZt-Ef-YNL" firstAttribute="centerX" secondItem="yeX-Ye-aIg" secondAttribute="centerX" id="kSA-rI-Q0m"/>
+                            <constraint firstItem="G3I-kk-NYG" firstAttribute="top" secondItem="1GB-e7-EF9" secondAttribute="bottom" id="oSX-gZ-v50"/>
+                            <constraint firstItem="1GB-e7-EF9" firstAttribute="top" secondItem="fcw-De-Nhu" secondAttribute="bottom" constant="20" id="rFD-q4-Rcv"/>
+                            <constraint firstItem="1GB-e7-EF9" firstAttribute="width" secondItem="fcw-De-Nhu" secondAttribute="width" id="rpY-Vz-Fi0"/>
+                            <constraint firstItem="2Id-xB-qeD" firstAttribute="height" secondItem="OZt-Ef-YNL" secondAttribute="height" id="rsd-l6-hAz"/>
+                            <constraint firstItem="vWf-xX-0la" firstAttribute="centerY" secondItem="yeX-Ye-aIg" secondAttribute="centerY" id="txI-Gd-qG0"/>
+                            <constraint firstItem="vWf-xX-0la" firstAttribute="top" secondItem="IXy-jK-OiX" secondAttribute="bottom" constant="20" id="wJ8-zQ-Rhk"/>
+                            <constraint firstItem="fcw-De-Nhu" firstAttribute="top" secondItem="vWf-xX-0la" secondAttribute="bottom" constant="3" id="ynQ-aK-mbO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yeX-Ye-aIg"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="친구위치찾기" id="M9V-V5-T6K">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="location.fill" catalog="system" id="GEJ-7e-j6g">
+                            <color key="tintColor" red="0.40000000000000002" green="0.25490196079999999" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="resetCurrentLocationButtonDidTap:" destination="1gU-2w-1qd" id="Tx2-Id-rIT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="Bxu-mu-x9B">
+                            <color key="tintColor" red="0.40000000000000002" green="0.25490196079999999" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="resetButtonDidTap:" destination="1gU-2w-1qd" id="t7S-Pn-KRr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="friendsAddressTableView" destination="1GB-e7-EF9" id="8sF-7h-xYK"/>
+                        <outlet property="myAddressLabel" destination="vWf-xX-0la" id="YTf-zH-r6v"/>
+                        <outlet property="nextButton" destination="G3I-kk-NYG" id="gog-nY-CQm"/>
+                        <outlet property="peopleCountLabel" destination="OZt-Ef-YNL" id="Ffl-Xp-cQT"/>
+                        <outlet property="resetCurrentLocationButton" destination="GEJ-7e-j6g" id="NfC-ev-SZR"/>
+                        <outlet property="ycenterConstraint" destination="txI-Gd-qG0" id="ZJW-jV-Ly2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YCU-37-mLU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055.072463768116" y="158.70535714285714"/>
+        </scene>
+        <!--Find Prefer Location View Controller-->
+        <scene sceneID="IJu-K4-cRq">
+            <objects>
+                <viewController storyboardIdentifier="FindPreferLocationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VdJ-lH-4V2" customClass="FindPreferLocationViewController" customModule="MiddlePoint" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sbV-Wq-Pni">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cai-u7-WsG">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" red="0.40000000000000002" green="0.25490196079999999" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HsR-KI-4EF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="결과보기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonDidtap:" destination="1gU-2w-1qd" eventType="touchUpInside" id="4Lo-X2-5Ti"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DGP-9Y-WE6" firstAttribute="bottom" secondItem="cai-u7-WsG" secondAttribute="bottom" id="HwR-jp-Qoc"/>
+                            <constraint firstItem="cai-u7-WsG" firstAttribute="leading" secondItem="DGP-9Y-WE6" secondAttribute="leading" id="RvT-BB-nka"/>
+                            <constraint firstItem="DGP-9Y-WE6" firstAttribute="trailing" secondItem="cai-u7-WsG" secondAttribute="trailing" id="oJa-FM-CGf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DGP-9Y-WE6"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4kA-Zx-4QS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7pg-iA-a94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2123" y="159"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QCA-7Z-n6h">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gXy-CY-VJF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3fr-ju-JkQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.40000000000000002" green="0.25490196079999999" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1gU-2w-1qd" kind="relationship" relationship="rootViewController" id="BDy-Og-WZP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xc7-Fo-Qun" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="144.92753623188406" y="158.70535714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <image name="location.fill" catalog="system" width="128" height="115"/>
+    </resources>
+</document>

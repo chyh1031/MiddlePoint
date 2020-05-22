@@ -1,0 +1,6 @@
+framework module Pods_MiddlePoint {
+  umbrella header "Pods-MiddlePoint-umbrella.h"
+
+  export *
+  module * { export * }
+}
