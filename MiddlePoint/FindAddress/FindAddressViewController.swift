@@ -37,6 +37,58 @@ class FindAddressViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton! // 다음페이지로 갈 버튼
     @IBOutlet weak var resetCurrentLocationButton: UIBarButtonItem! // 현재 나의 위치를 초기화 하는 버튼
     
+    @IBAction func resetCurrentLocationButtonDidTap(_ sender: UIBarButtonItem) {
+        //현위치 주소를 다시받아오는 버튼을 눌럿을경우 실행하는 함수
+        myAddressLabel.textColor = .lightGray
+        myAddressLabel.text = "내 현위치 다시 검색중 .."
+        getCurrentLocationCoordinate()
+    }
+    
+    @IBAction func resetButtonDidTap(_ sender: UIBarButtonItem) {
+        // 초기화 버튼을 눌렀을경우 모든 데이터를 초기값으로 세팅한다.
+        toolBar.removeFromSuperview()
+        picker.removeFromSuperview()
+        selectedRow = 0
+        currentPeopleCount = 0
+        myCoordination = nil
+        myAddress = ""
+        friendsAddress = []
+        friendsCoordinations = []
+        peopleCountLabel.textColor = .lightGray
+        peopleCountLabel.text = "만나는 친구가 몇명이신가요?"
+        resetCurrentLocationButtonDidTap(resetCurrentLocationButton)
+        settingPeopleCountPickerView()
+    }
+    
+    @IBAction func peopleCountButtonDidTap(_ sender: Any) {
+        //인원이 몇명이신가요 버튼을 눌렀을 경우 실행하는 함수
+        peopleCountLabel.textColor = .black
+        peopleCountLabel.text = "1명"
+        currentPeopleCount = peopleCountArray[0]
+        view.addSubview(picker)
+        view.addSubview(toolBar)
+        
+    }
+    
+    @IBAction func nextButtonDidtap(_ sender: Any) {
+//        if friendsCoordinations.count == currentPeopleCount {
+            //선택한 친구들 명수와 친구들 위치 정보 개수가 같을경우에만 다음페이지로 넘긴다
+            let nextViewController = storyboard?.instantiateViewController(withIdentifier: "FindPreferLocationViewController") as! FindPreferLocationViewController
+            nextViewController.myCoordination = myCoordination
+            nextViewController.friendsCoordinations = friendsCoordinations
+            nextViewController.myAddress = myAddress
+            nextViewController.friendsAddress = friendsAddress
+          
+            navigationController?.pushViewController(nextViewController, animated: true)
+//        } else {
+//            // 아닐 경우 Alert를 띄운다.
+//            let alert = UIAlertController(title: "", message: "친구들의 위치정보를 확인해주세요.",preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+//            alert.addAction(okAction)
+//            present(alert, animated: true, completion: nil)
+//        }
+    }
+    
     override func viewDidLoad() {
         // 현재 화면이 로드가 된후에 불리는 함수
         // 이곳에서 바로 위치정보를 설정 하고
@@ -50,9 +102,41 @@ class FindAddressViewController: UIViewController {
         settingPeopleCountPickerView()
     }
     
+    func settingLocationManager() {
+           // 디바이스 위치정보를 가져오기위해 세팅하는 함수
+           locationManager = CLLocationManager()
+           locationManager.delegate = self
+           locationManager.requestWhenInUseAuthorization()
+           locationManager.desiredAccuracy = kCLLocationAccuracyBest
+           locationManager.startUpdatingLocation()
+    }
+    
+    func settingPeopleCountPickerView() {
+        // 인원 선택을 위한 pickerView를 구성하는 함수
+        picker = UIPickerView.init()
+        picker.delegate = self
+        picker.dataSource = self
+        picker.backgroundColor = UIColor.white
+        picker.setValue(UIColor.black, forKey: "textColor")
+        picker.autoresizingMask = .flexibleWidth
+        picker.contentMode = .center
+        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        
+        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
+        toolBar.barStyle = .default
+        toolBar.items = [UIBarButtonItem.init(title: "선택완료", style: .done, target: self, action: #selector(onDoneButtonTapped))]
+        toolBar.tintColor = UIColor(red: 102/244, green: 65/244, blue: 241/244, alpha: 1)
+    }
+    
+    @objc func onDoneButtonTapped() {
+        //picker view toolbar 의 선택완료 버튼을 눌럿을경우 실행하는 함수
+        //툴바를 화면에서 지워줌
+        toolBar.removeFromSuperview()
+        picker.removeFromSuperview()
+    }
+    
     func changeYCenterConstraint(currentPeopleCount: Int) {
         // 친구 선택을 했을 경우 애니메이션을 줘서 화면을 더 잘사용하도록 변경
-        
         if currentPeopleCount == 0 {
             // 친구가 선택되어있지 않을경우 다음 버튼을 숨기고 가운데로 보여준다.
             ycenterConstraint.constant = 0
@@ -73,16 +157,7 @@ class FindAddressViewController: UIViewController {
             nextButton.isHidden = false
         }
     }
-    
-    func settingLocationManager() {
-        // 디바이스 위치정보를 가져오기위해 세팅하는 함수
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-    }
-    
+   
     func getCurrentLocationCoordinate() {
         // 디바이스 위치정보중 위도 경도를 가져와서 주소로 변환해주는 함수
         myCoordination = locationManager.location?.coordinate
@@ -118,30 +193,6 @@ class FindAddressViewController: UIViewController {
         }
     }
     
-    func settingPeopleCountPickerView() {
-        // 인원 선택을 위한 pickerView를 구성하는 함수
-        picker = UIPickerView.init()
-        picker.delegate = self
-        picker.dataSource = self
-        picker.backgroundColor = UIColor.white
-        picker.setValue(UIColor.black, forKey: "textColor")
-        picker.autoresizingMask = .flexibleWidth
-        picker.contentMode = .center
-        picker.frame = CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
-        
-        toolBar = UIToolbar.init(frame: CGRect.init(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
-        toolBar.barStyle = .default
-        toolBar.items = [UIBarButtonItem.init(title: "선택완료", style: .done, target: self, action: #selector(onDoneButtonTapped))]
-        toolBar.tintColor = UIColor(red: 102/244, green: 65/244, blue: 241/244, alpha: 1)
-    }
-    
-    @objc func onDoneButtonTapped() {
-        //picker view toolbar 의 선택완료 버튼을 눌럿을경우 실행하는 함수
-        //툴바를 화면에서 지워줌
-        toolBar.removeFromSuperview()
-        picker.removeFromSuperview()
-    }
-    
     func settingPeopleAddressData() {
         if friendsAddress.count < currentPeopleCount {
             // 친구의 명수가 추가된경우 추가된 명수 만큼 배열을 추가한다.
@@ -162,59 +213,6 @@ class FindAddressViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func resetButtonDidTap(_ sender: UIBarButtonItem) {
-        // 초기화 버튼을 눌렀을경우 모든 데이터를 초기값으로 세팅한다.
-        toolBar.removeFromSuperview()
-        picker.removeFromSuperview()
-        selectedRow = 0
-        currentPeopleCount = 0
-        myCoordination = nil
-        myAddress = ""
-        friendsAddress = []
-        friendsCoordinations = []
-        peopleCountLabel.textColor = .lightGray
-        peopleCountLabel.text = "만나는 친구가 몇명이신가요?"
-        resetCurrentLocationButtonDidTap(resetCurrentLocationButton)
-        settingPeopleCountPickerView()
-    }
-    
-    @IBAction func resetCurrentLocationButtonDidTap(_ sender: UIBarButtonItem) {
-        //현위치 주소를 다시받아오는 버튼을 눌럿을경우 실행하는 함수
-        myAddressLabel.textColor = .lightGray
-        myAddressLabel.text = "내 현위치 다시 검색중 .."
-        getCurrentLocationCoordinate()
-    }
-    
-    @IBAction func peopleCountButtonDidTap(_ sender: Any) {
-        //인원이 몇명이신가요 버튼을 눌렀을 경우 실행하는 함수
-        peopleCountLabel.textColor = .black
-        peopleCountLabel.text = "1명"
-        currentPeopleCount = peopleCountArray[0]
-        view.addSubview(picker)
-        view.addSubview(toolBar)
-        
-    }
-    
-    @IBAction func nextButtonDidtap(_ sender: Any) {
-        if friendsCoordinations.count == currentPeopleCount {
-            //선택한 친구들 명수와 친구들 위치 정보 개수가 같을경우에만 다음페이지로 넘긴다
-            let nextViewController = storyboard?.instantiateViewController(withIdentifier: "FindPreferLocationViewController") as! FindPreferLocationViewController
-            nextViewController.myCoordination = myCoordination
-            nextViewController.friendsCoordinations = friendsCoordinations
-            nextViewController.myAddress = myAddress
-            nextViewController.friendsAddress = friendsAddress
-          
-            navigationController?.pushViewController(nextViewController, animated: true)
-
-        } else {
-            // 아닐 경우 Alert를 띄운다.
-            let alert = UIAlertController(title: "", message: "친구들의 위치정보를 확인해주세요.",preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
-            alert.addAction(okAction)
-            present(alert, animated: true, completion: nil)
-        }
-    }
 }
 
 extension FindAddressViewController: UITableViewDelegate, UITableViewDataSource {
@@ -233,6 +231,9 @@ extension FindAddressViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 셀을 클릭했을경우 위치정보 검색 화면을 띄운다.
+        toolBar.removeFromSuperview()
+        picker.removeFromSuperview()
+        
         selectedRow = indexPath.row
         
         let autocompleteController = GMSAutocompleteViewController()

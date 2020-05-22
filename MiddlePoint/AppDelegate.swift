@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(apiKey)
         GMSPlacesClient.provideAPIKey(apiKey)
         
+        Thread.sleep(forTimeInterval: 1.0)
+        
         return true
     }
+
 }

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--친구위치찾기-->
+        <!--친구위치입력-->
         <scene sceneID="Eqh-uF-aW9">
             <objects>
                 <viewController restorationIdentifier="FindAddressViewController" storyboardIdentifier="FindAddressViewController" id="1gU-2w-1qd" customClass="FindAddressViewController" customModule="MiddlePoint" customModuleProvider="target" sceneMemberID="viewController">
@@ -141,7 +141,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yeX-Ye-aIg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="친구위치찾기" id="M9V-V5-T6K">
+                    <navigationItem key="navigationItem" title="친구위치입력" id="M9V-V5-T6K">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="location.fill" catalog="system" id="GEJ-7e-j6g">
                             <color key="tintColor" red="0.40000000000000002" green="0.25490196079999999" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -168,7 +168,7 @@
             </objects>
             <point key="canvasLocation" x="1055.072463768116" y="158.70535714285714"/>
         </scene>
-        <!--Find Prefer Location View Controller-->
+        <!--선호장소 선택-->
         <scene sceneID="IJu-K4-cRq">
             <objects>
                 <viewController storyboardIdentifier="FindPreferLocationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VdJ-lH-4V2" customClass="FindPreferLocationViewController" customModule="MiddlePoint" customModuleProvider="target" sceneMemberID="viewController">
@@ -217,7 +217,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DGP-9Y-WE6"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4kA-Zx-4QS"/>
+                    <navigationItem key="navigationItem" title="선호장소 선택" id="4kA-Zx-4QS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pg-iA-a94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
