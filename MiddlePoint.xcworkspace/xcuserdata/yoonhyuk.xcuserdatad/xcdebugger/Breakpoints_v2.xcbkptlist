@@ -7,176 +7,240 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "37B660EE-68CD-452F-91E6-1F9F07624FE7"
+            uuid = "907F7012-6B89-4360-9EF1-D471A29E1F3D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MiddlePoint/MatchInfomationViewController.swift"
+            filePath = "MiddlePoint/FindAddress/FindAddressViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
-            landmarkName = "viewController(_:didAutocompleteWith:)"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "nextButtonDidtap(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7AA7E089-B521-4DCA-865D-BE0A0FE7310F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MiddlePoint/MatchInfomationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "resetCurrentLocationButtonDidTap(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "94B1C241-7B0B-47DC-92DC-C36CCA680D5A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MiddlePoint/MatchInfomationViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
-            landmarkName = "viewController(_:didAutocompleteWith:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "838E9A6E-FEE7-48B5-81FC-31BC468B1067"
+            uuid = "CDF0CE77-7AAA-4633-BB5A-DAA134D1FC54"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MiddlePoint/MatchInfomationViewController.swift"
+            filePath = "MiddlePoint/FindAddress/FindAddressViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "getCurrentLocationCoordinate()"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "settingPeopleAddressData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D6979106-1D4F-41EA-91B2-11F24D3587EB"
-            shouldBeEnabled = "Yes"
+            uuid = "5594DCAB-53DA-4236-A9CA-2942EA093CF3"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MiddlePoint/FindPreferLocationViewController.swift"
+            filePath = "MiddlePoint/ResultPreferLocation/ResultPreferLocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5594DCAB-53DA-4236-A9CA-2942EA093CF3 - c666177c4c138bf2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MiddlePoint.ResultPreferLocationViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "MiddlePoint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yoonhyuk/Desktop/MiddlePoint/MiddlePoint/ResultPreferLocation/ResultPreferLocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "296">
+               </Location>
+               <Location
+                  uuid = "5594DCAB-53DA-4236-A9CA-2942EA093CF3 - 9a752920925146ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 ((title: MiddlePoint.PreferType, selection: Swift.Bool)) -&gt; () in MiddlePoint.ResultPreferLocationViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "MiddlePoint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yoonhyuk/Desktop/MiddlePoint/MiddlePoint/ResultPreferLocation/ResultPreferLocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "663B74B8-A460-43A4-AB50-AC1C55C06817"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MiddlePoint/FindAddress/FindAddressViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "339"
-            endingLineNumber = "339"
-            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CEED43E2-2BEB-4BDD-B786-F1879B313254"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MiddlePoint/FindAddress/FindAddressViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
-            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "12424F2A-7940-4F83-862E-483F24CA3706"
+            uuid = "20530CAD-2DEC-4D67-81CC-88F9D79812B0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MiddlePoint/FindAddress/FindAddressViewController.swift"
+            filePath = "MiddlePoint/ResultPreferLocation/ResultPreferLocationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "getNearPlaces(type:centerLocation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02329252-1F25-48B8-96BD-14765072FE4C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MiddlePoint/ResultPreferLocation/ResultPreferLocationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "getNearPlaces(type:centerLocation:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7F3F30F-E817-4B11-8364-F6A27DD3E061"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MiddlePoint/FindPreferLocation/FindPreferLocationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "getCentCoordination()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6DF68872-D3E6-4E1A-AEB8-BE4697771B23"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MiddlePoint/FindPreferLocation/PolygonArea.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "polygonCenterOfMass(polygon:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "34077FEF-E8E9-4C6A-8E52-3297BB4DBCC2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MiddlePoint/FindPreferLocation/PolygonArea.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
-            landmarkName = "peopleCountButtonDidTap(_:)"
+            landmarkName = "polygonCenterOfMass(polygon:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E9487050-4036-44A9-8CA7-F25EC5B5606E"
+            uuid = "6FD07C9D-3247-4D28-83C6-0EED0DC7C6DC"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MiddlePoint/FindAddress/FindAddressViewController.swift"
+            filePath = "MiddlePoint/ResultPreferLocation/ResultPreferLocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "getNearPlaces(type:centerLocation:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "28BBEDDE-0E4D-4F16-A814-4BB7A96E7DED"
+            uuid = "038143B6-2663-493A-8A6A-A691BCB41E82"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MiddlePoint/FindAddress/FindAddressViewController.swift"
+            filePath = "MiddlePoint/ResultPreferLocation/ResultPreferLocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
-            landmarkName = "viewController(_:didAutocompleteWith:)"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "getNearPlaces(type:centerLocation:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "038143B6-2663-493A-8A6A-A691BCB41E82 - e279d7bce3c0f821"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MiddlePoint.ResultPreferLocationViewController.getNearPlaces(type: Swift.String, centerLocation: __C.CLLocationCoordinate2D) -&gt; ()"
+                  moduleName = "MiddlePoint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yoonhyuk/Desktop/MiddlePoint/MiddlePoint/ResultPreferLocation/ResultPreferLocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "1043">
+               </Location>
+               <Location
+                  uuid = "038143B6-2663-493A-8A6A-A691BCB41E82 - c132c4182e3a341a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in MiddlePoint.ResultPreferLocationViewController.getNearPlaces(type: Swift.String, centerLocation: __C.CLLocationCoordinate2D) -&gt; ()"
+                  moduleName = "MiddlePoint"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yoonhyuk/Desktop/MiddlePoint/MiddlePoint/ResultPreferLocation/ResultPreferLocationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "412">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F2CCC5D0-F188-4777-B42D-8B7255ACE589"
+            uuid = "0F4FC507-3C0C-4247-8E4F-0582754D8CBA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MiddlePoint/FindAddress/FindAddressViewController.swift"
+            filePath = "MiddlePoint/ResultPreferLocation/ResultPreferLocationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
-            landmarkName = "viewController(_:didAutocompleteWith:)"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "getNearPlaces(type:centerLocation:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

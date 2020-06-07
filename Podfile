@@ -9,5 +9,6 @@ target 'MiddlePoint' do
 
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Alamofire', '~> 4.2'
 
 end

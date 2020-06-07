@@ -11,6 +11,7 @@ import CoreLocation
 import GoogleMaps
 import GooglePlaces
 
+
 class FindAddressViewController: UIViewController {
     var geocoder: GMSGeocoder? // Google API 로 주소 -> 좌표, 좌표 -> 주소 로 바꾸기위한 모듈
     var locationManager: CLLocationManager! // 디바이스 현위치 좌표를 알아오기위한 모듈
@@ -21,7 +22,7 @@ class FindAddressViewController: UIViewController {
     var friendsCoordinations: [CLLocationCoordinate2D] = [] // 친구들의 위치정보를 담을 배열 변수
     var myAddress: String = "" // 내 주소를 담을 변수
     var friendsAddress: [String] = [] // 친구들의 주소를 담을 배열 변수
-    var selectedRow: Int = 0 // 친구들 위치정보를 찾기위해 선택한 셀의 index 변수
+    var selectedRow: Int = -1 // 친구들 위치정보를 찾기위해 선택한 셀의 index 변수
     var currentPeopleCount = 0 {
         didSet {
             settingPeopleAddressData()
@@ -44,11 +45,21 @@ class FindAddressViewController: UIViewController {
         getCurrentLocationCoordinate()
     }
     
+    @IBAction func changeCurrentLocationDidtap(_ sender: Any) {
+        // 셀을 클릭했을경우 위치정보 검색 화면을 띄운다.
+        toolBar.removeFromSuperview()
+        picker.removeFromSuperview()
+        
+        selectedRow = -1
+        
+        showAutocompleteController()
+    }
+    
     @IBAction func resetButtonDidTap(_ sender: UIBarButtonItem) {
         // 초기화 버튼을 눌렀을경우 모든 데이터를 초기값으로 세팅한다.
         toolBar.removeFromSuperview()
         picker.removeFromSuperview()
-        selectedRow = 0
+        selectedRow = -1
         currentPeopleCount = 0
         myCoordination = nil
         myAddress = ""
@@ -71,11 +82,8 @@ class FindAddressViewController: UIViewController {
         if friendsCoordinations.count == currentPeopleCount {
             //선택한 친구들 명수와 친구들 위치 정보 개수가 같을경우에만 다음페이지로 넘긴다
             let nextViewController = storyboard?.instantiateViewController(withIdentifier: "FindPreferLocationViewController") as! FindPreferLocationViewController
-            nextViewController.myCoordination = myCoordination
-            nextViewController.friendsCoordinations = friendsCoordinations
-            nextViewController.myAddress = myAddress
-            nextViewController.friendsAddress = friendsAddress
-          
+            nextViewController.searchAddressModel = SearchAddressModel(myCoordination: myCoordination ?? CLLocationCoordinate2D(latitude: 0, longitude: 0), friendsCoordinations: friendsCoordinations, myAddress: myAddress, friendsAddress: friendsAddress)
+            
             navigationController?.pushViewController(nextViewController, animated: true)
         } else {
             // 아닐 경우 Alert를 띄운다.
@@ -100,12 +108,12 @@ class FindAddressViewController: UIViewController {
     }
     
     func settingLocationManager() {
-           // 디바이스 위치정보를 가져오기위해 세팅하는 함수
-           locationManager = CLLocationManager()
-           locationManager.delegate = self
-           locationManager.requestWhenInUseAuthorization()
-           locationManager.desiredAccuracy = kCLLocationAccuracyBest
-           locationManager.startUpdatingLocation()
+        // 디바이스 위치정보를 가져오기위해 세팅하는 함수
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
     }
     
     func settingPeopleCountPickerView() {
@@ -154,7 +162,7 @@ class FindAddressViewController: UIViewController {
             nextButton.isHidden = false
         }
     }
-   
+    
     func getCurrentLocationCoordinate() {
         // 디바이스 위치정보중 위도 경도를 가져와서 주소로 변환해주는 함수
         myCoordination = locationManager.location?.coordinate
@@ -162,12 +170,12 @@ class FindAddressViewController: UIViewController {
         guard let coordination = myCoordination else { return }
         
         //API 통신 좌표 -> 주소
+        
         geocoder?.reverseGeocodeCoordinate(coordination) { response, error in
-            
             if error != nil {
                 // 위도경도로 주소를 불러왔는데 Error 가 온다면 텍스트 내용과 색을 변경
                 self.myAddressLabel.text = "위치를 찾지 못했습니다.\n다시 받아와주세요."
-               
+                
                 return
             }
             
@@ -175,11 +183,12 @@ class FindAddressViewController: UIViewController {
                 var address = ""
                 
                 guard let lines = location.lines else {
-                     // 위도경도로 주소를 불러왔는데 정보가 없다면 텍스트 내용과 색을 변경
+                    // 위도경도로 주소를 불러왔는데 정보가 없다면 텍스트 내용과 색을 변경
                     self.myAddressLabel.text = "위치를 찾지 못했습니다.\n다시 받아와주세요."
-                   
+                    
                     return
                 }
+                
                 address = lines[0]
                 address = address.trimmingCharacters(in: .whitespacesAndNewlines)
                 self.myAddressLabel.text = address
@@ -202,7 +211,7 @@ class FindAddressViewController: UIViewController {
             }
             
         } else if friendsAddress.count > currentPeopleCount {
-             // 친구의 명수가 빠졋을경우 빠진 명수 만큼 배열을 추가한다.
+            // 친구의 명수가 빠졋을경우 빠진 명수 만큼 배열을 추가한다.
             var deleteCount = friendsAddress.count - currentPeopleCount
             
             while deleteCount != 0 {
@@ -210,6 +219,24 @@ class FindAddressViewController: UIViewController {
                 deleteCount = deleteCount - 1
             }
         }
+    }
+    
+    func showAutocompleteController() {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        
+        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
+            UInt(GMSPlaceField.placeID.rawValue))!
+        autocompleteController.placeFields = fields
+        
+        let filter = GMSAutocompleteFilter()
+        filter.type = .region
+        filter.country = "KR"
+        filter.origin = locationManager.location
+        //한국의 지오코드 정보를 사용하기 위한 세팅
+        autocompleteController.autocompleteFilter = filter
+        
+        present(autocompleteController, animated: true, completion: nil)
     }
 }
 
@@ -234,21 +261,7 @@ extension FindAddressViewController: UITableViewDelegate, UITableViewDataSource 
         
         selectedRow = indexPath.row
         
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        
-        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-            UInt(GMSPlaceField.placeID.rawValue))!
-        autocompleteController.placeFields = fields
-        
-        let filter = GMSAutocompleteFilter()
-        filter.type = .geocode
-        filter.country = "KR"
-        filter.origin = locationManager.location
-        //한국의 지오코드 정보를 사용하기 위한 세팅 
-        autocompleteController.autocompleteFilter = filter
-        
-        present(autocompleteController, animated: true, completion: nil)
+        showAutocompleteController()
     }
     
 }
@@ -259,45 +272,77 @@ extension FindAddressViewController: GMSAutocompleteViewControllerDelegate {
         // 구글 위치정보 검색이 완료 되었을때 선택한 주소 이름을 가져옴
         // 가져온 주소로 위도 경도 값을 가져와서 저장함
         guard let placeName = place.name else { return }
-        friendsAddress[selectedRow] = placeName
         
-        //API 통신 주소 -> 좌표
-        CLGeocoder().geocodeAddressString(placeName) { placeMarks, error in
-            if error != nil {
-                print("에러 발생: 에러")
-                self.friendsAddress[self.selectedRow] = "위치를 찾지 못했습니다.\n다시 받아와주세요."
-                self.friendsAddressTableView.reloadData()
-                return
-            }
-            guard let coordinate = placeMarks?[0].location?.coordinate else {
-                print("에러 발생: 데이터 없음")
-                self.friendsAddress[self.selectedRow] = "위치를 찾지 못했습니다.\n다시 받아와주세요."
-                self.friendsAddressTableView.reloadData()
-                return
+        if selectedRow == -1 {
+            myAddress = placeName
+            myAddressLabel.text = placeName
+            
+            //API 통신 주소 -> 좌표
+        
+            CLGeocoder().geocodeAddressString(placeName) { placeMarks, error in
+                if error != nil {
+                    print("에러 발생: 에러")
+                    self.myAddressLabel.text = "위치를 찾지 못했습니다.\n다시 받아와주세요."
+                    
+                    return
+                }
+                guard let coordinate = placeMarks?[0].location?.coordinate else {
+                    print("에러 발생: 데이터 없음")
+                    self.myAddressLabel.text = "위치를 찾지 못했습니다.\n다시 받아와주세요."
+                    
+                    return
+                }
                 
+                self.myCoordination = coordinate
             }
-            self.friendsCoordinations.append(coordinate)
+            
+        } else {
+            friendsAddress[selectedRow] = placeName
+            
+            //API 통신 주소 -> 좌표
+            CLGeocoder().geocodeAddressString(placeName) { placeMarks, error in
+                if error != nil {
+                    print("에러 발생: 에러")
+                    self.friendsAddress[self.selectedRow] = "위치를 찾지 못했습니다.\n다시 받아와주세요."
+                    self.friendsAddressTableView.reloadData()
+                    return
+                }
+                guard let coordinate = placeMarks?[0].location?.coordinate else {
+                    print("에러 발생: 데이터 없음")
+                    self.friendsAddress[self.selectedRow] = "위치를 찾지 못했습니다.\n다시 받아와주세요."
+                    self.friendsAddressTableView.reloadData()
+                    return
+                }
+                
+                if self.friendsCoordinations.count >= self.currentPeopleCount {
+                    self.friendsCoordinations[self.selectedRow] = coordinate
+                } else {
+                    self.friendsCoordinations.append(coordinate)
+                }
+            }
+            
+            friendsAddressTableView.reloadData()
         }
         
-        friendsAddressTableView.reloadData()
         dismiss(animated: true, completion: nil)
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         // 주소를 가져오다 에러 발생시 이 로직을 탐
         // 위치정보를 찾지 못했다는것을 알려줌
-        friendsAddress[selectedRow] = "위치를 찾지 못했습니다.\n다시 받아와주세요."
-        friendsAddressTableView.reloadData()
-        print("Error: ", error.localizedDescription)
+        if friendsAddress.count > 0 {
+            friendsAddress[selectedRow] = "위치를 찾지 못했습니다.\n다시 받아와주세요."
+            friendsAddressTableView.reloadData()
+            print("Error: ", error.localizedDescription)
+        }
     }
     
-   
+    
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         //취소했을경우
         friendsAddressTableView.reloadData()
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension FindAddressViewController: CLLocationManagerDelegate {
@@ -340,4 +385,10 @@ extension FindAddressViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         peopleCountLabel.text = String(peopleCountArray[row]) + "명"
         currentPeopleCount = peopleCountArray[row]
     }
+}
+
+extension CLLocationCoordinate2D: Equatable {}
+
+public func ==(lhs: CLLocationCoordinate2D, rhs: CLLocationCoordinate2D) -> Bool {
+    return (lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude)
 }
