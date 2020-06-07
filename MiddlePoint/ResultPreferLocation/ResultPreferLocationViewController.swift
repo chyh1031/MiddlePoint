@@ -75,7 +75,7 @@ class ResultPreferLocationViewController: UIViewController, CLLocationManagerDel
     
     func getNearPlaces(type: String, centerLocation: CLLocationCoordinate2D) {
         guard let url = URL(string:
-            "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(centerLocation.latitude),\(centerLocation.longitude)&radius=\(searchRadius)&type=\(type)&key=AIzaSyCoIL-hzWRe6fnwdCNMIVWvBPteQxI48nc") else { return }
+            "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(centerLocation.latitude),\(centerLocation.longitude)&radius=\(searchRadius)&type=\(type)&key=") else { return }
         
         Alamofire.request(url, method: .get).validate().responseJSON { response in
             guard response.result.isSuccess else {
