@@ -41,10 +41,12 @@ class PolygonArea {
             //좌표들의 배열이 2보다 작으면 그냥 끝낸다
             completion(false, nil)
         } else if polygon.count == 2 {
-            
+
             //좌표들의 배열이 2이면 두배열의 중앙값을 만들어 사용처로 넘긴다.
             //centerByTwoSpot 는 두점의 중앙값을 만드는 함수
-            completion(true, centerByTwoSpot(polygon: polygon))
+
+            let center = centerByTwoSpot(polygon: polygon)
+            completion(true, center)
         } else {
             let count = polygon.count
             var centerX: Double = 0

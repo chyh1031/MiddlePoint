@@ -72,8 +72,7 @@ class ResultPreferLocationViewController: UIViewController, CLLocationManagerDel
         
         let camera = GMSCameraPosition.camera(withLatitude: centerCoordination.latitude, longitude: centerCoordination.longitude, zoom: 16)
         mapView.camera = camera
-        mapView.settings.myLocationButton = true
-        mapView.isMyLocationEnabled = true
+
         self.mapView.delegate = self
         self.view = mapView
         

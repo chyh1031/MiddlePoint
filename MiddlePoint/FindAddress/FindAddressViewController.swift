@@ -329,7 +329,7 @@ extension FindAddressViewController: GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         // 주소를 가져오다 에러 발생시 이 로직을 탐
         // 위치정보를 찾지 못했다는것을 알려줌
-        if friendsAddress.count > 0 {
+        if friendsAddress.count > 0 && selectedRow != -1 {
             friendsAddress[selectedRow] = "위치를 찾지 못했습니다.\n다시 받아와주세요."
             friendsAddressTableView.reloadData()
             print("Error: ", error.localizedDescription)

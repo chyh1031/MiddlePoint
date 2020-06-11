@@ -37,6 +37,8 @@ class FindPreferLocationViewController: UIViewController {
                 alert.addAction(okAction)
                 present(alert, animated: true, completion: nil)
             } else {
+                //중앙값을 가져왔고 그다음 뷰를 보여줍니다,.
+                //중앙 값과 주소 모델, 선호장소 리스트를 다음 뷰로 넘깁니다.
                 guard let centerCoordination = centerCoordination else { return }
                 
                 let resultViewController = storyboard?.instantiateViewController(withIdentifier: "ResultPreferLocationViewController") as! ResultPreferLocationViewController
