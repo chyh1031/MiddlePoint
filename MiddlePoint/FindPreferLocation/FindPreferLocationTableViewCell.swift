@@ -9,6 +9,5 @@
 import UIKit
 
 class FindPreferLocationTableViewCell: UITableViewCell {
-    
     @IBOutlet weak var preferLocationLabel: UILabel!
 }

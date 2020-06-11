@@ -207,6 +207,7 @@ class FindAddressViewController: UIViewController {
             
             while addCount != 0 {
                 friendsAddress.append("")
+                friendsCoordinations.append(CLLocationCoordinate2D(latitude: 0, longitude: 0))
                 addCount = addCount - 1
             }
             
@@ -216,6 +217,7 @@ class FindAddressViewController: UIViewController {
             
             while deleteCount != 0 {
                 friendsAddress.removeLast()
+                friendsCoordinations.removeLast()
                 deleteCount = deleteCount - 1
             }
         }
@@ -314,11 +316,8 @@ extension FindAddressViewController: GMSAutocompleteViewControllerDelegate {
                     return
                 }
                 
-                if self.friendsCoordinations.count >= self.currentPeopleCount {
-                    self.friendsCoordinations[self.selectedRow] = coordinate
-                } else {
-                    self.friendsCoordinations.append(coordinate)
-                }
+                self.friendsCoordinations[self.selectedRow] = coordinate
+
             }
             
             friendsAddressTableView.reloadData()
