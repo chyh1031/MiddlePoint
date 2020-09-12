@@ -15,7 +15,7 @@ import GooglePlaces
 class FindAddressViewController: UIViewController {
     var geocoder: GMSGeocoder? // Google API 로 주소 -> 좌표, 좌표 -> 주소 로 바꾸기위한 모듈
     var locationManager: CLLocationManager! // 디바이스 현위치 좌표를 알아오기위한 모듈
-    var peopleCountArray: [Int] = [1,2,3,4,5,6,7,8,9,10] // 만날 친구의 명수를 담은 배열
+    var peopleCountArray: [Int] = [0,1,2,3,4,5,6,7,8,9,10] // 만날 친구의 명수를 담은 배열
     var toolBar = UIToolbar() // 만날 친구를 선택할 PickerView 에 달릴 툴바
     var picker  = UIPickerView()// 만날 친구를 선택 하는 기능의 PickerView
     var myCoordination: CLLocationCoordinate2D? // 나의 위치 정보를 담을 변수
