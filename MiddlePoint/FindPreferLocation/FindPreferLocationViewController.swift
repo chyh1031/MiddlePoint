@@ -43,7 +43,6 @@ class FindPreferLocationViewController: UIViewController {
                 
                 let resultViewController = storyboard?.instantiateViewController(withIdentifier: "ResultPreferLocationViewController") as! ResultPreferLocationViewController
                 
-                resultViewController.searchAddressModel = searchAddressModel
                 resultViewController.centerCoordination = centerCoordination
                 resultViewController.preferLocationList = preferLocationList
                 navigationController?.pushViewController(resultViewController, animated: true)

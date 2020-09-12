@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceCardView" customModule="MiddlePoint" customModuleProvider="target">
+            <connections>
+                <outlet property="placeAddressLabel" destination="Re5-Qq-aqH" id="Xmy-TJ-ujk"/>
+                <outlet property="placeImageView" destination="Sev-aR-E99" id="sNO-xd-PoK"/>
+                <outlet property="placeNameLabel" destination="AW4-JB-RQq" id="W6a-bx-Gwa"/>
+                <outlet property="webSiteButton" destination="wS2-Ec-l7M" id="u4V-2N-slO"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sev-aR-E99">
+                    <rect key="frame" x="10" y="65" width="160" height="160"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="Tt9-Jw-ZhO"/>
+                        <constraint firstAttribute="height" constant="160" id="VCI-ev-A1W"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AW4-JB-RQq">
+                    <rect key="frame" x="190" y="85" width="29.5" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="xCd-fP-ACq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Re5-Qq-aqH">
+                    <rect key="frame" x="190" y="120" width="29.5" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Xas-kR-HSd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wS2-Ec-l7M">
+                    <rect key="frame" x="190" y="205" width="99" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="SIB-P1-yIz"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal">
+                        <attributedString key="attributedTitle">
+                            <fragment content="사이트로 가기">
+                                <attributes>
+                                    <font key="NSFont" size="18" name="AppleSDGothicNeo-Regular"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="1" defaultTabInterval="28" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                        <tabStops/>
+                                    </paragraphStyle>
+                                    <integer key="NSUnderline" value="1"/>
+                                    <color key="NSUnderlineColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ab-co-Rwi">
+                    <rect key="frame" x="315" y="0.0" width="60" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="n4r-5g-67f"/>
+                        <constraint firstAttribute="width" constant="60" id="z7t-AX-U3s"/>
+                    </constraints>
+                    <state key="normal" title="닫기">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="closeButtonDidTap:" destination="-1" eventType="touchUpInside" id="Rpf-H0-ftc"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.61952574823943662" green="0.56145466549295775" blue="0.9360476430732394" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="8ab-co-Rwi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3kI-AI-P03"/>
+                <constraint firstItem="wS2-Ec-l7M" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Re5-Qq-aqH" secondAttribute="bottom" constant="10" id="4gm-WV-Q4F"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Sev-aR-E99" secondAttribute="bottom" constant="25" id="ByE-4c-02C"/>
+                <constraint firstItem="wS2-Ec-l7M" firstAttribute="bottom" secondItem="Sev-aR-E99" secondAttribute="bottom" id="CX2-6k-Yjp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Re5-Qq-aqH" secondAttribute="trailing" constant="10" id="Gb6-So-1kd"/>
+                <constraint firstItem="Re5-Qq-aqH" firstAttribute="leading" secondItem="AW4-JB-RQq" secondAttribute="leading" id="LeC-rC-fMz"/>
+                <constraint firstAttribute="trailing" secondItem="8ab-co-Rwi" secondAttribute="trailing" id="NaE-1K-Y9g"/>
+                <constraint firstItem="Re5-Qq-aqH" firstAttribute="top" secondItem="AW4-JB-RQq" secondAttribute="bottom" constant="10" id="QsK-Sy-hQB"/>
+                <constraint firstItem="AW4-JB-RQq" firstAttribute="top" secondItem="Sev-aR-E99" secondAttribute="top" constant="20" id="S5g-CF-VGz"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AW4-JB-RQq" secondAttribute="trailing" constant="10" id="St2-8f-jIB"/>
+                <constraint firstItem="AW4-JB-RQq" firstAttribute="leading" secondItem="Sev-aR-E99" secondAttribute="trailing" constant="20" id="jjE-C8-5Ts"/>
+                <constraint firstItem="wS2-Ec-l7M" firstAttribute="leading" secondItem="Re5-Qq-aqH" secondAttribute="leading" id="rpY-On-z2o"/>
+                <constraint firstItem="Sev-aR-E99" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="uJq-K9-oFe"/>
+                <constraint firstItem="Sev-aR-E99" firstAttribute="top" secondItem="8ab-co-Rwi" secondAttribute="bottom" constant="25" id="vsX-SD-z6M"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="80" y="80"/>
+        </view>
+    </objects>
+</document>

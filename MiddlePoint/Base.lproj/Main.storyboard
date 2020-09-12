@@ -268,9 +268,24 @@
                     <view key="view" contentMode="scaleToFill" id="nac-VY-Efs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ekj-T9-008" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ekj-T9-008" firstAttribute="top" secondItem="GR1-8m-Cef" secondAttribute="top" id="8hX-Nb-nTZ"/>
+                            <constraint firstItem="GR1-8m-Cef" firstAttribute="trailing" secondItem="ekj-T9-008" secondAttribute="trailing" id="BcY-vf-bxz"/>
+                            <constraint firstItem="ekj-T9-008" firstAttribute="leading" secondItem="GR1-8m-Cef" secondAttribute="leading" id="KR0-I5-Ljr"/>
+                            <constraint firstItem="GR1-8m-Cef" firstAttribute="bottom" secondItem="ekj-T9-008" secondAttribute="bottom" id="tKA-GW-nv0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GR1-8m-Cef"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="ekj-T9-008" id="rgw-eG-rrw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7W-sE-zPg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

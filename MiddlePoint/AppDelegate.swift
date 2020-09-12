@@ -9,6 +9,7 @@ import UIKit
 
 import GooglePlaces
 import GoogleMaps
+import KakaoSDKCommon
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Thread.sleep(forTimeInterval: 1.0)
         
+        KakaoSDKCommon.initSDK(appKey: "d3972b7cb2d7884e95f63c4cf29a3401")
+        
         return true
     }
-
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        KakaoShare.shared.checkKakaoLink(url: url)
+        
+        return true 
+    }
+    
 }

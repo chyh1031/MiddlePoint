@@ -14,9 +14,10 @@ struct PlaceDataResults : Codable {
 	let rating : Double?
 	let reference : String?
 	let scope : String?
-	let types : [String]?
+	var types : [String]?
 	let user_ratings_total : Int?
 	let vicinity : String?
+    let website: String?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -35,6 +36,7 @@ struct PlaceDataResults : Codable {
 		case types = "types"
 		case user_ratings_total = "user_ratings_total"
 		case vicinity = "vicinity"
+        case website = "website"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -54,6 +56,7 @@ struct PlaceDataResults : Codable {
 		types = try values.decodeIfPresent([String].self, forKey: .types)
 		user_ratings_total = try values.decodeIfPresent(Int.self, forKey: .user_ratings_total)
 		vicinity = try values.decodeIfPresent(String.self, forKey: .vicinity)
+        website = try values.decodeIfPresent(String.self, forKey: .website)
 	}
 
 }

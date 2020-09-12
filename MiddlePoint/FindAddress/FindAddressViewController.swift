@@ -107,6 +107,12 @@ class FindAddressViewController: UIViewController {
         settingPeopleCountPickerView()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        locationManager.stopUpdatingLocation()
+    }
+    
     func settingLocationManager() {
         // 디바이스 위치정보를 가져오기위해 세팅하는 함수
         locationManager = CLLocationManager()
@@ -175,6 +181,7 @@ class FindAddressViewController: UIViewController {
             if error != nil {
                 // 위도경도로 주소를 불러왔는데 Error 가 온다면 텍스트 내용과 색을 변경
                 self.myAddressLabel.text = "위치를 찾지 못했습니다.\n다시 받아와주세요."
+                self.myAddressLabel.textColor = .red
                 
                 return
             }
@@ -185,6 +192,7 @@ class FindAddressViewController: UIViewController {
                 guard let lines = location.lines else {
                     // 위도경도로 주소를 불러왔는데 정보가 없다면 텍스트 내용과 색을 변경
                     self.myAddressLabel.text = "위치를 찾지 못했습니다.\n다시 받아와주세요."
+                    self.myAddressLabel.textColor = .red
                     
                     return
                 }
@@ -278,6 +286,7 @@ extension FindAddressViewController: GMSAutocompleteViewControllerDelegate {
         if selectedRow == -1 {
             myAddress = placeName
             myAddressLabel.text = placeName
+            myAddressLabel.textColor = .black
             
             //API 통신 주소 -> 좌표
         

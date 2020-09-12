@@ -7,8 +7,9 @@ target 'MiddlePoint' do
 
   # Pods for MiddlePoint
 
-  pod 'GoogleMaps'
+  pod 'KakaoSDK'
+  pod 'GoogleMaps', '~> 3.10.0'
   pod 'GooglePlaces'
-  pod 'Alamofire', '~> 4.2'
-
+  pod 'Alamofire', '~> 5.1'
+  pod 'Kingfisher'
 end
