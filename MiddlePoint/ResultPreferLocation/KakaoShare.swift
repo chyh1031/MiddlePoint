@@ -63,7 +63,7 @@ class KakaoShare {
     
     func checkKakaoLink(url: URL) {
         //카카오링크가 들어왔을겨우 스킴이 있는지 확인 해서 맞는 URL 인지 확인
-        guard url.absoluteString.contains("kakaod3972b7cb2d7884e95f63c4cf29a3401") else {
+        guard url.absoluteString.contains("kakao4cf75446fcd6b49ff2a251e58bdf2400") else {
             return
         }
         

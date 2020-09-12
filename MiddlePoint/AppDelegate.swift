@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Thread.sleep(forTimeInterval: 1.0)
         
-        KakaoSDKCommon.initSDK(appKey: "d3972b7cb2d7884e95f63c4cf29a3401")
+        KakaoSDKCommon.initSDK(appKey: "4cf75446fcd6b49ff2a251e58bdf2400")
         
         return true
     }
