@@ -31,6 +31,9 @@
 		72BF0E64248CA4C40078D3C3 /* FindPreferLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF0E63248CA4C40078D3C3 /* FindPreferLocationTableViewCell.swift */; };
 		72BF0E67248CAF1D0078D3C3 /* ResultPreferLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF0E66248CAF1D0078D3C3 /* ResultPreferLocationViewController.swift */; };
 		72C7D53E2483CBFB0005FB76 /* SearchAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C7D53D2483CBFB0005FB76 /* SearchAddressModel.swift */; };
+		72CDE74425375D630087958B /* StarRatingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CDE74125375D630087958B /* StarRatingStackView.swift */; };
+		72CDE74525375D630087958B /* StarRatingStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CDE74225375D630087958B /* StarRatingStackView.xib */; };
+		72CDE74625375D630087958B /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CDE74325375D630087958B /* StarRatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,9 @@
 		72BF0E63248CA4C40078D3C3 /* FindPreferLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPreferLocationTableViewCell.swift; sourceTree = "<group>"; };
 		72BF0E66248CAF1D0078D3C3 /* ResultPreferLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPreferLocationViewController.swift; sourceTree = "<group>"; };
 		72C7D53D2483CBFB0005FB76 /* SearchAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressModel.swift; sourceTree = "<group>"; };
+		72CDE74125375D630087958B /* StarRatingStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
+		72CDE74225375D630087958B /* StarRatingStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarRatingStackView.xib; sourceTree = "<group>"; };
+		72CDE74325375D630087958B /* StarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		C8D084511992F5FAEBCCDCC6 /* Pods-MiddlePoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiddlePoint.release.xcconfig"; path = "Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint.release.xcconfig"; sourceTree = "<group>"; };
 		F196B57BE50AA74EABCC5AE3 /* Pods_MiddlePoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiddlePoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C2CAE108DF947AA46CE33A /* Pods-MiddlePoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiddlePoint.debug.xcconfig"; path = "Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint.debug.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 				7239633524F4FB7B00A67BDD /* KakaoShare.swift */,
 				7205900924E7CF6400AB3E58 /* PlaceCardView */,
 				72BF0E6A248CE9C50078D3C3 /* PlaceData */,
+				72CDE74025375D500087958B /* StarRatingview */,
 			);
 			path = ResultPreferLocation;
 			sourceTree = "<group>";
@@ -171,6 +178,16 @@
 				724DD571248D137200290110 /* Viewport.swift */,
 			);
 			path = PlaceData;
+			sourceTree = "<group>";
+		};
+		72CDE74025375D500087958B /* StarRatingview */ = {
+			isa = PBXGroup;
+			children = (
+				72CDE74125375D630087958B /* StarRatingStackView.swift */,
+				72CDE74325375D630087958B /* StarRatingView.swift */,
+				72CDE74225375D630087958B /* StarRatingStackView.xib */,
+			);
+			path = StarRatingview;
 			sourceTree = "<group>";
 		};
 		803DFD4B3BB4A62D8190D923 /* Pods */ = {
@@ -249,6 +266,7 @@
 				7205900B24E7D3BD00AB3E58 /* PlaceCardView.xib in Resources */,
 				721E3879247181B6004420CA /* LaunchScreen.storyboard in Resources */,
 				721E3876247181B6004420CA /* Assets.xcassets in Resources */,
+				72CDE74525375D630087958B /* StarRatingStackView.xib in Resources */,
 				721E3874247181B6004420CA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,7 +349,9 @@
 				724DD577248D137300290110 /* Photos.swift in Sources */,
 				724DD57A248D137300290110 /* Viewport.swift in Sources */,
 				724DD57D248D13CF00290110 /* PlaceData.swift in Sources */,
+				72CDE74425375D630087958B /* StarRatingStackView.swift in Sources */,
 				721E388124718344004420CA /* FindAddressViewController.swift in Sources */,
+				72CDE74625375D630087958B /* StarRatingView.swift in Sources */,
 				724DD576248D137300290110 /* Plus_code.swift in Sources */,
 				727B9D822477F4AF00984A62 /* FindPreferLocationViewController.swift in Sources */,
 				7205900D24E7D3D700AB3E58 /* PlaceCardView.swift in Sources */,
@@ -413,7 +433,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -467,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

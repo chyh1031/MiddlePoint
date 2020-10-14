@@ -14,6 +14,10 @@ import GoogleMaps
 import GooglePlaces
 import Alamofire
 
+enum CurrentLocationType {
+    case eachPlaceRecomand
+    case wholePlace
+}
 
 class ResultPreferLocationViewController: UIViewController {
     
@@ -23,7 +27,6 @@ class ResultPreferLocationViewController: UIViewController {
     var searchAddressModel: SearchAddressModel? // 나의 위치 정보를 담을 변수
     var centerCoordination: CLLocationCoordinate2D?
     var marker: GMSMarker!
-    var circle: GMSCircle!
     var placeClient: GMSPlacesClient!
     var place: GMSPlace!
     var preferLocationList: [(title:PreferType, selection: Bool)]?
@@ -36,9 +39,83 @@ class ResultPreferLocationViewController: UIViewController {
     var currentRestaurntData: [PlaceDataResults] = []
     var currentCafeData: [PlaceDataResults] = []
     
-    var searchRadius: Double = 1000 {
-        didSet {
-            circle.radius = searchRadius
+    var searchRadius: Double = 1000
+    
+    var currentLocationType: CurrentLocationType = .wholePlace
+    
+    @IBOutlet weak var reconmandButton: UIButton!
+    
+    @IBAction func recomandButtonDidTap(_ sender: Any) {
+        closePlaceCardView()
+        
+        if currentLocationType == .eachPlaceRecomand {
+            currentLocationType = .wholePlace
+            reconmandButton.setTitle("순위 추천 보기", for: .normal)
+        } else {
+            currentLocationType = .eachPlaceRecomand
+            reconmandButton.setTitle("전체 보기", for: .normal)
+        }
+        
+        //지도 초기화
+        mapView.clear()
+        
+        //범위원, 카메라 위치를 선택된 마커로 다시 세팅
+        setMapCircle()
+        setMapCamera(position: centerCoordination)
+        
+        var transitData = currentTransitData
+        var cafeData = currentCafeData
+        var restaurntData = currentRestaurntData
+        
+        switch currentLocationType {
+    
+        case .eachPlaceRecomand:
+            transitData = currentTransitData.suffix(3)
+            cafeData = currentCafeData.suffix(3)
+            restaurntData = currentRestaurntData.suffix(3)
+        default :
+            break
+        }
+       
+        ///데이터들을 다시 색에 맞춰서 세팅 , 그중 세팅된 마커의 데이터를 가지고 있다면 색을 변경하고 그위치로 카메라를 위치시킨다.
+        
+        for data in transitData {
+            let markerColor = UIColor.green
+            
+            guard let location = data.geometry?.location else { return }
+            guard let name = data.name else { return }
+            
+            let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
+            
+            marker.snippet = name
+            marker.icon = GMSMarker.markerImage(with: markerColor)
+            marker.map = self.mapView
+        }
+        
+        for data in cafeData {
+            let markerColor = UIColor.brown
+            
+            guard let location = data.geometry?.location else { return }
+            guard let name = data.name else { return }
+            
+            let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
+            
+            marker.snippet = name
+            marker.icon = GMSMarker.markerImage(with: markerColor)
+            marker.map = self.mapView
+        }
+        
+        for data in restaurntData {
+            let markerColor = UIColor.red
+            
+            guard let location = data.geometry?.location else { return }
+            guard let name = data.name else { return }
+            
+            let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
+            
+            marker.snippet = name
+            marker.icon = GMSMarker.markerImage(with: markerColor)
+            marker.map = self.mapView
         }
     }
     
@@ -47,7 +124,7 @@ class ResultPreferLocationViewController: UIViewController {
         setMapView()
         setPlaceCardView()
         setNavigationBarItem()
-        
+
         guard let centerCoordination = centerCoordination else  { return }
         //preferLocationList 의 선호장소 의 선택 유뮤에 따라서 장소를 검색 시작
         
@@ -91,7 +168,7 @@ class ResultPreferLocationViewController: UIViewController {
     func setMapCircle() {
         guard let centerCoordination = centerCoordination else  { return }
         
-        circle = GMSCircle(position: centerCoordination, radius: searchRadius)
+        let circle = GMSCircle(position: centerCoordination, radius: searchRadius)
         circle.fillColor = UIColor(red: 102/244, green: 65/244, blue: 241/244, alpha: 0.2)
         circle.map = mapView;
     }
@@ -118,7 +195,7 @@ class ResultPreferLocationViewController: UIViewController {
     
     func getNearPlaces(type: String, centerLocation: CLLocationCoordinate2D) {
         guard let url = URL(string:
-            "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(centerLocation.latitude),\(centerLocation.longitude)&radius=\(searchRadius)&type=\(type)&key=AIzaSyCoIL-hzWRe6fnwdCNMIVWvBPteQxI48nc") else { return }
+            "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(centerLocation.latitude),\(centerLocation.longitude)&radius=\(searchRadius)&type=\(type)&key=") else { return }
         // 네트워크 라이브러리인 Alamofire 를 사용해서 url로 리퀘스트 해서 리스폰스를 json으로 받음
         AF.request(url, method: .get).validate().responseJSON { [weak self] response in
             
@@ -147,10 +224,17 @@ class ResultPreferLocationViewController: UIViewController {
         if type == "restaurant" {
             //레스토랑 데이터가 있을경우 저장하고 마커를 빨간색으로 변경
             currentRestaurntData = placeData
+            
+            //레스토랑 데이터의 rating
+            currentRestaurntData.sort { $0.rating ?? 0 < $1.rating ?? 0}
+            
             markerColor = UIColor.red
         } else if type == "cafe" {
             //카페 데이터가 있을경우 저장하고 마커를 갈색으로 변경
             self.currentCafeData = placeData
+            
+            currentCafeData.sort { $0.rating ?? 0 < $1.rating ?? 0}
+            
             markerColor = UIColor.brown
         } else {
             //버스 지하철 데이터가 있을경우 저장하고 마커를 초록색으로 변경
@@ -159,6 +243,8 @@ class ResultPreferLocationViewController: UIViewController {
             } else {
                 currentTransitData = placeData
             }
+            
+            currentTransitData.sort { $0.rating ?? 0 < $1.rating ?? 0}
             
             markerColor = UIColor.green
         }
@@ -200,7 +286,7 @@ extension ResultPreferLocationViewController: GMSMapViewDelegate {
         let selectedMarkerPosition = marker.position
         let selectedMarkerColor = UIColor(red: 102/244, green: 65/244, blue: 241/244, alpha: 1)
         
-        /// 카드뷰를 닫아준다 Constraint 값 변경으로 올림
+        /// 카드뷰를 열어준다  Constraint 값 변경으로 올림
         if placeCardViewBottomConstraint.constant == 250 {
             placeCardViewBottomConstraint.constant = 0
         }
@@ -209,16 +295,34 @@ extension ResultPreferLocationViewController: GMSMapViewDelegate {
             self.view.layoutIfNeeded()
         }
         
+        var zoom = mapView.camera.zoom
+        if mapView.camera.zoom <= 14 {
+            zoom = 15
+        }
         //지도 초기화
         mapView.clear()
         
         //범위원, 카메라 위치를 선택된 마커로 다시 세팅
         setMapCircle()
-        setMapCamera(position: selectedMarkerPosition, zoom: 16)
-       
-        ///데이터들을 다시 색에 맞춰서 세팅 , 그중 세팅된 마커의 데이터를 가지고 있다면 색을 변경하고 그위치로 카메라를 위치시킨다.
+        setMapCamera(position: selectedMarkerPosition, zoom: zoom)
         
-        for data in currentTransitData {
+        var transitData = currentTransitData
+        var cafeData = currentCafeData
+        var restaurntData = currentRestaurntData
+        
+        switch currentLocationType {
+    
+        case .eachPlaceRecomand:
+            transitData = currentTransitData.suffix(3)
+            cafeData = currentCafeData.suffix(3)
+            restaurntData = currentRestaurntData.suffix(3)
+        default :
+            break
+        }
+       
+        ///데이터들을 다시 색에 맞춰서 세팅 , 그중 세팅된 마커의 데이터를 가지고 있다면 색을 변경하고 그위치로 카메라를 위치시킨다
+        
+        for data in transitData {
             let markerColor = UIColor.green
             
             guard let location = data.geometry?.location else { return false }
@@ -243,7 +347,7 @@ extension ResultPreferLocationViewController: GMSMapViewDelegate {
             }
         }
         
-        for data in currentCafeData {
+        for data in cafeData {
             let markerColor = UIColor.brown
             
             guard let location = data.geometry?.location else { return false }
@@ -269,7 +373,7 @@ extension ResultPreferLocationViewController: GMSMapViewDelegate {
             }
         }
         
-        for data in currentRestaurntData {
+        for data in restaurntData {
             let markerColor = UIColor.red
             
             guard let location = data.geometry?.location else { return false }

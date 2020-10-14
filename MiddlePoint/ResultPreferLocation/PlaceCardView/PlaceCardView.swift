@@ -13,12 +13,14 @@ protocol PlaceCardViewDelegate: class {
     func closePlaceCardView()
 }
 
+@available(iOS 13.0, *)
 class PlaceCardView: UIView {
     
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var placeAddressLabel: UILabel!
     @IBOutlet weak var webSiteButton: UIButton!
+    @IBOutlet weak var starRatingView: StarRatingView!
     
     private let xibName = "PlaceCardView"
     private var placeURL = ""
@@ -48,6 +50,7 @@ class PlaceCardView: UIView {
         placeNameLabel.text = data.name
         placeAddressLabel.text = data.vicinity
         placeURL = data.website ?? ""
+        starRatingView.rating = Float(data.rating ?? 0)
         
         if placeURL != "" {
             webSiteButton.isHidden = false

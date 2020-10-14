@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,6 +13,7 @@
                 <outlet property="placeAddressLabel" destination="Re5-Qq-aqH" id="Xmy-TJ-ujk"/>
                 <outlet property="placeImageView" destination="Sev-aR-E99" id="sNO-xd-PoK"/>
                 <outlet property="placeNameLabel" destination="AW4-JB-RQq" id="W6a-bx-Gwa"/>
+                <outlet property="starRatingView" destination="5Cp-zN-Zfv" id="MDj-KF-veZ"/>
                 <outlet property="webSiteButton" destination="wS2-Ec-l7M" id="u4V-2N-slO"/>
             </connections>
         </placeholder>
@@ -47,7 +48,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wS2-Ec-l7M">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wS2-Ec-l7M">
                     <rect key="frame" x="190" y="205" width="99" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="SIB-P1-yIz"/>
@@ -68,7 +69,7 @@
                         </attributedString>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ab-co-Rwi">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ab-co-Rwi">
                     <rect key="frame" x="315" y="0.0" width="60" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="n4r-5g-67f"/>
@@ -81,7 +82,16 @@
                         <action selector="closeButtonDidTap:" destination="-1" eventType="touchUpInside" id="Rpf-H0-ftc"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cp-zN-Zfv" customClass="StarRatingView" customModule="MiddlePoint" customModuleProvider="target">
+                    <rect key="frame" x="10" y="44" width="100" height="20"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="M83-dh-cxj"/>
+                        <constraint firstAttribute="width" constant="100" id="shj-RL-M3R"/>
+                    </constraints>
+                </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.61952574823943662" green="0.56145466549295775" blue="0.9360476430732394" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="8ab-co-Rwi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3kI-AI-P03"/>
@@ -94,13 +104,14 @@
                 <constraint firstItem="Re5-Qq-aqH" firstAttribute="top" secondItem="AW4-JB-RQq" secondAttribute="bottom" constant="10" id="QsK-Sy-hQB"/>
                 <constraint firstItem="AW4-JB-RQq" firstAttribute="top" secondItem="Sev-aR-E99" secondAttribute="top" constant="20" id="S5g-CF-VGz"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AW4-JB-RQq" secondAttribute="trailing" constant="10" id="St2-8f-jIB"/>
+                <constraint firstItem="Sev-aR-E99" firstAttribute="top" secondItem="5Cp-zN-Zfv" secondAttribute="bottom" constant="1" id="gY5-DJ-p3i"/>
                 <constraint firstItem="AW4-JB-RQq" firstAttribute="leading" secondItem="Sev-aR-E99" secondAttribute="trailing" constant="20" id="jjE-C8-5Ts"/>
                 <constraint firstItem="wS2-Ec-l7M" firstAttribute="leading" secondItem="Re5-Qq-aqH" secondAttribute="leading" id="rpY-On-z2o"/>
                 <constraint firstItem="Sev-aR-E99" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="uJq-K9-oFe"/>
                 <constraint firstItem="Sev-aR-E99" firstAttribute="top" secondItem="8ab-co-Rwi" secondAttribute="bottom" constant="25" id="vsX-SD-z6M"/>
+                <constraint firstItem="5Cp-zN-Zfv" firstAttribute="leading" secondItem="Sev-aR-E99" secondAttribute="leading" id="xZV-Y4-h1f"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="80" y="80"/>
         </view>
     </objects>
