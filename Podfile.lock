@@ -46,7 +46,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.1)
   - GoogleMaps (~> 3.10.0)
-  - GooglePlaces
+  - GooglePlaces (~> 3.10.0)
   - KakaoSDK
   - Kingfisher
 
@@ -83,6 +83,6 @@ SPEC CHECKSUMS:
   KakaoSDKUser: 8bd45ea9da54ba877cf057589c4ef47f67773c53
   Kingfisher: 1acb67597a520c2d0310677e66d6e0af455ef757
 
-PODFILE CHECKSUM: df78321525228ac037ae24058d5296f780ebd203
+PODFILE CHECKSUM: 86584d7faafaa56a59ed649c83e4eae7eb9345be
 
 COCOAPODS: 1.9.3

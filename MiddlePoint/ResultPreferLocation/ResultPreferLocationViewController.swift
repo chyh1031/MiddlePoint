@@ -86,9 +86,13 @@ class ResultPreferLocationViewController: UIViewController {
             guard let name = data.name else { return }
             
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
+            let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            
+            icon.image = UIImage(named: "icon")
+            icon.tintColor = markerColor
             
             marker.snippet = name
-            marker.icon = GMSMarker.markerImage(with: markerColor)
+            marker.iconView = icon
             marker.map = self.mapView
         }
         
@@ -99,9 +103,13 @@ class ResultPreferLocationViewController: UIViewController {
             guard let name = data.name else { return }
             
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
+            let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            
+            icon.image = UIImage(named: "icon")
+            icon.tintColor = markerColor
             
             marker.snippet = name
-            marker.icon = GMSMarker.markerImage(with: markerColor)
+            marker.iconView = icon
             marker.map = self.mapView
         }
         
@@ -112,9 +120,13 @@ class ResultPreferLocationViewController: UIViewController {
             guard let name = data.name else { return }
             
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
+            let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            
+            icon.image = UIImage(named: "icon")
+            icon.tintColor = markerColor
             
             marker.snippet = name
-            marker.icon = GMSMarker.markerImage(with: markerColor)
+            marker.iconView = icon
             marker.map = self.mapView
         }
     }
@@ -195,7 +207,7 @@ class ResultPreferLocationViewController: UIViewController {
     
     func getNearPlaces(type: String, centerLocation: CLLocationCoordinate2D) {
         guard let url = URL(string:
-            "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(centerLocation.latitude),\(centerLocation.longitude)&radius=\(searchRadius)&type=\(type)&key=") else { return }
+                                "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(centerLocation.latitude),\(centerLocation.longitude)&radius=\(searchRadius)&type=\(type)&key=AIzaSyCoIL-hzWRe6fnwdCNMIVWvBPteQxI48nc") else { return }
         // 네트워크 라이브러리인 Alamofire 를 사용해서 url로 리퀘스트 해서 리스폰스를 json으로 받음
         AF.request(url, method: .get).validate().responseJSON { [weak self] response in
             
@@ -255,8 +267,12 @@ class ResultPreferLocationViewController: UIViewController {
             guard let name = result.name else { return }
             
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
+            let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            icon.image = UIImage(named: "icon")
+            icon.tintColor = markerColor
+            
             marker.snippet = name
-            marker.icon = GMSMarker.markerImage(with: markerColor)
+            marker.iconView = icon
             marker.map = self.mapView
         }
         
@@ -329,16 +345,19 @@ extension ResultPreferLocationViewController: GMSMapViewDelegate {
             guard let name = data.name else { return false }
             
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
+            let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            icon.image = UIImage(named: "icon")
             
             marker.snippet = name
             
             ///선택된 마커라면 색을 변경
             if marker.position == selectedMarkerPosition {
-                marker.icon = GMSMarker.markerImage(with: selectedMarkerColor)
+                icon.tintColor = selectedMarkerColor
             } else {
-                marker.icon = GMSMarker.markerImage(with: markerColor)
+                icon.tintColor = markerColor
             }
             
+            marker.iconView = icon
             marker.map = self.mapView
             
              ///선택된 마커라면 장소 데이터를 카드뷰에 보여줌
@@ -354,17 +373,19 @@ extension ResultPreferLocationViewController: GMSMapViewDelegate {
             guard let name = data.name else { return false }
             
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
+            let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            icon.image = UIImage(named: "icon")
             
             marker.snippet = name
             
              ///선택된 마커라면 색을 변경
             if marker.position == selectedMarkerPosition {
-                marker.icon = GMSMarker.markerImage(with: selectedMarkerColor)
-                
+                icon.tintColor = selectedMarkerColor
             } else {
-                marker.icon = GMSMarker.markerImage(with: markerColor)
+                icon.tintColor = markerColor
             }
             
+            marker.iconView = icon
             marker.map = self.mapView
             
             ///선택된 마커라면 장소 데이터를 카드뷰에 보여줌
@@ -380,16 +401,19 @@ extension ResultPreferLocationViewController: GMSMapViewDelegate {
             guard let name = data.name else { return false }
             
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
+            let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            icon.image = UIImage(named: "icon")
             
             marker.snippet = name
             
             ///선택된 마커라면 색을 변경
             if marker.position == selectedMarkerPosition {
-                marker.icon = GMSMarker.markerImage(with: selectedMarkerColor)
+                icon.tintColor = selectedMarkerColor
             } else {
-                marker.icon = GMSMarker.markerImage(with: markerColor)
+                icon.tintColor = markerColor
             }
             
+            marker.iconView = icon
             marker.map = self.mapView
             
             ///선택된 마커라면 장소 데이터를 카드뷰에 보여줌

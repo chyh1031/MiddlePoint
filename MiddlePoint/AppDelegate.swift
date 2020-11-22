@@ -14,14 +14,14 @@ import KakaoSDKCommon
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    let apiKey = ""
+    let apiKey = "AIzaSyBT8VE0fl_bgSw51UQzs-5sKUZAvJcrFs4"
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         GMSServices.provideAPIKey(apiKey)
         GMSPlacesClient.provideAPIKey(apiKey)
         
         Thread.sleep(forTimeInterval: 1.0)
         
-        KakaoSDKCommon.initSDK(appKey: "")
+        KakaoSDKCommon.initSDK(appKey: "4cf75446fcd6b49ff2a251e58bdf2400")
         
         return true
     }
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         KakaoShare.shared.checkKakaoLink(url: url)
         
-        return true 
+        return true
     }
     
 }

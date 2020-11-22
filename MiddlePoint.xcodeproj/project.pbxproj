@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54ABC6E1AFFAFFCB91D4DCAD /* Pods_MiddlePoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F196B57BE50AA74EABCC5AE3 /* Pods_MiddlePoint.framework */; };
+		4AB309BC72F05BF516DCF748 /* Pods_MiddlePoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 622B6D724B2CE7DDEDB98E4E /* Pods_MiddlePoint.framework */; };
 		7205900B24E7D3BD00AB3E58 /* PlaceCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7205900A24E7D3BD00AB3E58 /* PlaceCardView.xib */; };
 		7205900D24E7D3D700AB3E58 /* PlaceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7205900C24E7D3D700AB3E58 /* PlaceCardView.swift */; };
 		721E386D247181B6004420CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721E386C247181B6004420CA /* AppDelegate.swift */; };
@@ -37,6 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A1682D93413C99B4C90C69B /* Pods-MiddlePoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiddlePoint.release.xcconfig"; path = "Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint.release.xcconfig"; sourceTree = "<group>"; };
+		622B6D724B2CE7DDEDB98E4E /* Pods_MiddlePoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiddlePoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A4571EE65F5D761E22E7ED2 /* Pods-MiddlePoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiddlePoint.debug.xcconfig"; path = "Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint.debug.xcconfig"; sourceTree = "<group>"; };
 		7205900A24E7D3BD00AB3E58 /* PlaceCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCardView.xib; sourceTree = "<group>"; };
 		7205900C24E7D3D700AB3E58 /* PlaceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCardView.swift; sourceTree = "<group>"; };
 		721E3869247181B6004420CA /* MiddlePoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiddlePoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,9 +68,6 @@
 		72CDE74125375D630087958B /* StarRatingStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingStackView.swift; sourceTree = "<group>"; };
 		72CDE74225375D630087958B /* StarRatingStackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarRatingStackView.xib; sourceTree = "<group>"; };
 		72CDE74325375D630087958B /* StarRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
-		C8D084511992F5FAEBCCDCC6 /* Pods-MiddlePoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiddlePoint.release.xcconfig"; path = "Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint.release.xcconfig"; sourceTree = "<group>"; };
-		F196B57BE50AA74EABCC5AE3 /* Pods_MiddlePoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiddlePoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5C2CAE108DF947AA46CE33A /* Pods-MiddlePoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiddlePoint.debug.xcconfig"; path = "Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,21 +75,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54ABC6E1AFFAFFCB91D4DCAD /* Pods_MiddlePoint.framework in Frameworks */,
+				4AB309BC72F05BF516DCF748 /* Pods_MiddlePoint.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		282769462DE0BFC87853A658 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F196B57BE50AA74EABCC5AE3 /* Pods_MiddlePoint.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7205900924E7CF6400AB3E58 /* PlaceCardView */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +97,7 @@
 				721E386B247181B6004420CA /* MiddlePoint */,
 				721E386A247181B6004420CA /* Products */,
 				803DFD4B3BB4A62D8190D923 /* Pods */,
-				282769462DE0BFC87853A658 /* Frameworks */,
+				B773B506F36FCA7AF5B47AD0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,10 +185,18 @@
 		803DFD4B3BB4A62D8190D923 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F5C2CAE108DF947AA46CE33A /* Pods-MiddlePoint.debug.xcconfig */,
-				C8D084511992F5FAEBCCDCC6 /* Pods-MiddlePoint.release.xcconfig */,
+				6A4571EE65F5D761E22E7ED2 /* Pods-MiddlePoint.debug.xcconfig */,
+				1A1682D93413C99B4C90C69B /* Pods-MiddlePoint.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B773B506F36FCA7AF5B47AD0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				622B6D724B2CE7DDEDB98E4E /* Pods_MiddlePoint.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,12 +206,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 721E387D247181B6004420CA /* Build configuration list for PBXNativeTarget "MiddlePoint" */;
 			buildPhases = (
-				B96E252661A3C5B5FFC4BABB /* [CP] Check Pods Manifest.lock */,
+				D1E50EF7EFFAE5AF8612A9E5 /* [CP] Check Pods Manifest.lock */,
 				721E3865247181B6004420CA /* Sources */,
 				721E3866247181B6004420CA /* Frameworks */,
 				721E3867247181B6004420CA /* Resources */,
-				BA85053FE858DA43A3237967 /* [CP] Embed Pods Frameworks */,
-				D9BD914095ED262502028E36 /* [CP] Copy Pods Resources */,
+				057BAD93B0BDA2619C0DA95A /* [CP] Embed Pods Frameworks */,
+				684F1B46D267BB2D75D73CBD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -274,7 +274,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B96E252661A3C5B5FFC4BABB /* [CP] Check Pods Manifest.lock */ = {
+		057BAD93B0BDA2619C0DA95A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		684F1B46D267BB2D75D73CBD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1E50EF7EFFAE5AF8612A9E5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -294,40 +328,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BA85053FE858DA43A3237967 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D9BD914095ED262502028E36 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MiddlePoint/Pods-MiddlePoint-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -499,12 +499,12 @@
 		};
 		721E387E247181B6004420CA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5C2CAE108DF947AA46CE33A /* Pods-MiddlePoint.debug.xcconfig */;
+			baseConfigurationReference = 6A4571EE65F5D761E22E7ED2 /* Pods-MiddlePoint.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4NRPR44H5W;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MiddlePoint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -520,12 +520,12 @@
 		};
 		721E387F247181B6004420CA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8D084511992F5FAEBCCDCC6 /* Pods-MiddlePoint.release.xcconfig */;
+			baseConfigurationReference = 1A1682D93413C99B4C90C69B /* Pods-MiddlePoint.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4NRPR44H5W;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MiddlePoint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -9,7 +9,7 @@ target 'MiddlePoint' do
 
   pod 'KakaoSDK'
   pod 'GoogleMaps', '~> 3.10.0'
-  pod 'GooglePlaces'
+  pod 'GooglePlaces', '~> 3.10.0'
   pod 'Alamofire', '~> 5.1'
   pod 'Kingfisher'
 end
