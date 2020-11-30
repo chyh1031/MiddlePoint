@@ -1,4 +1,3 @@
-
 //
 //  ShowPreferLocationViewController.swift
 //  MiddlePoint
@@ -87,7 +86,6 @@ class ResultPreferLocationViewController: UIViewController {
             
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
             let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-            
             icon.image = UIImage(named: "icon")
             icon.tintColor = markerColor
             
@@ -104,7 +102,6 @@ class ResultPreferLocationViewController: UIViewController {
             
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
             let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-            
             icon.image = UIImage(named: "icon")
             icon.tintColor = markerColor
             
@@ -121,7 +118,6 @@ class ResultPreferLocationViewController: UIViewController {
             
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: location.lat ?? 0, longitude: location.lng ?? 0))
             let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-            
             icon.image = UIImage(named: "icon")
             icon.tintColor = markerColor
             
@@ -179,6 +175,15 @@ class ResultPreferLocationViewController: UIViewController {
     
     func setMapCircle() {
         guard let centerCoordination = centerCoordination else  { return }
+        
+        let marker = GMSMarker(position: centerCoordination)
+        let icon = UIImageView(frame: CGRect(x: 0, y: 0, width: 15, height: 15))
+        
+        icon.image = UIImage(named: "icon")
+        icon.tintColor = UIColor(red: 102/244, green: 65/244, blue: 241/244, alpha: 1)
+        
+        marker.iconView = icon
+        marker.map = self.mapView
         
         let circle = GMSCircle(position: centerCoordination, radius: searchRadius)
         circle.fillColor = UIColor(red: 102/244, green: 65/244, blue: 241/244, alpha: 0.2)
@@ -296,6 +301,11 @@ extension ResultPreferLocationViewController: PlaceCardViewDelegate {
 
 extension ResultPreferLocationViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        guard marker.position != centerCoordination else {
+            closePlaceCardView()
+            
+            return false
+        }
         
         ///선택한 마커의 필요한 데이터 저장
         let selectedMarkerSnipet = marker.snippet
